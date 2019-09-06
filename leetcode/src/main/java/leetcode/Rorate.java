@@ -10,27 +10,20 @@ package leetcode;
 public class Rorate {
 
     public void rotate(int[] nums, int k) {
-        int flag = 0;
-        for (int i=0;i<nums.length;i++){
-            int changetag = 0;
-            if(i<k){
-                changetag = nums[i];
-                nums[i] = nums[nums.length - k + i];
-                nums[nums.length - k + i] = changetag;
-            } else {
-                
+        while (k-->0){
+            int flag = nums[nums.length-1];
+            for (int i = 0;i<nums.length;i++){
+                int tag = nums[i];
+                nums [i] = flag;
+                flag =tag;
             }
         }
-        System.out.println(1);
-
     }
 
-    public void ratate(int []nums,int start,int k){
 
-    }
 
     public static void main(String[] args) {
         int []a={1,2,3,4,5,6,7};
-        new Rorate().rotate(a,2);
+        new Rorate().rotate(a,3);
     }
 }
