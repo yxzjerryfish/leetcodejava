@@ -44,6 +44,7 @@ public class MyArrayListTest {
         add();
         myArrayList.add(2,4);
         assert (myArrayList.size() == 4);
+        assert (myArrayList.get(2) == 4);
     }
 
     @Test
