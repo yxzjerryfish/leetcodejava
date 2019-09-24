@@ -26,7 +26,7 @@ public class MyArrayList<T> implements Iterable<T> {
     private T[] innerElement = (T[]) new Object[0];
 
     private void instance(Integer size){
-        if (size> this.size){
+        if (size>= this.size){
             this.size = size;
             T [] old = innerElement;
             this.innerElement = (T[])new Object[size];
@@ -86,9 +86,9 @@ public class MyArrayList<T> implements Iterable<T> {
         if (index > size){
             throw new ArrayIndexOutOfBoundsException("Index overflow !");
         }
-        instance(++this.size);
-        if(this.size >index){
-            System.arraycopy(this.innerElement, index, this.innerElement, index + 1, this.size - index);
+        instance(this.size+1);
+        if(index<size-1){
+            System.arraycopy(this.innerElement, index-1, this.innerElement, index , this.size - index);
         }
         this.innerElement[index] = t;
     }

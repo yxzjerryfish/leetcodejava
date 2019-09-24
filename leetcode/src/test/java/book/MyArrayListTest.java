@@ -1,7 +1,8 @@
 package book;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.testng.annotations.BeforeMethod;
 
 /**
  * MyArrayList 单元测试
@@ -16,7 +17,7 @@ public class MyArrayListTest {
 
     @Test
     void size() {
-        Assert.assertSame(myArrayList.size() ,0);
+        assert (myArrayList.size() == 0);
     }
 
     @Test
@@ -24,12 +25,12 @@ public class MyArrayListTest {
         myArrayList.add(1);
         myArrayList.add(2);
         myArrayList.add(3);
-
     }
 
     @Test
     void get() {
-        assert (myArrayList.get(2)==2);
+        add();
+        assert (myArrayList.get(2)==3);
     }
 
     @Test
@@ -40,6 +41,9 @@ public class MyArrayListTest {
 
     @Test
     void testAdd() {
+        add();
+        myArrayList.add(2,4);
+        assert (myArrayList.size() == 4);
     }
 
     @Test
