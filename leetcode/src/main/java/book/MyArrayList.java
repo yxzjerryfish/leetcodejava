@@ -42,6 +42,12 @@ public class MyArrayList<T> implements Iterable<T> {
         return this.size;
     }
 
+    public Boolean isEmpty(){return this.size == 0;}
+
+    public void clear(){
+        this.size = 0;
+        this.innerElement = (T[]) new Object[0];
+    }
     /**
      * 根据下标获取对应元素
      * @param index 下标
@@ -52,6 +58,19 @@ public class MyArrayList<T> implements Iterable<T> {
             throw new ArrayIndexOutOfBoundsException("Index overflow !");
         }
         return this.innerElement[index];
+    }
+
+    public Integer[] getIndex(T t){
+        Integer []s = new Integer[this.size];
+        int j = 0;
+        for (int i = 0;i<this.size;i++){
+            if(this.innerElement[i].equals(t)){
+                s[j++] = i;
+            }
+        }
+        Integer []s1 = new Integer[j];
+        System.arraycopy(s,0,s1,0,j);
+        return s1;
     }
 
     /**
@@ -91,6 +110,12 @@ public class MyArrayList<T> implements Iterable<T> {
             System.arraycopy(this.innerElement, index-1, this.innerElement, index , this.size - index);
         }
         this.innerElement[index] = t;
+    }
+
+    public MyArrayList<T> addAll(MyArrayList<T> arrayList){
+        instance(this.size + arrayList.size());
+        System.arraycopy(arrayList.innerElement,0,this.innerElement,this.size - arrayList.size,arrayList.size);
+        return this ;
     }
 
     @Override
