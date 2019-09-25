@@ -1,9 +1,10 @@
 package book;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
+//import org.testng.Assert;
+//import org.testng.annotations.BeforeMethod;
 
 /**
  * MyArrayList 单元测试
@@ -79,7 +80,7 @@ public class MyArrayListTest {
         add();
         Integer [] a =myArrayList.getIndex(1);
         Integer [] b ={0,3,4};
-        Assert.assertEquals(a,b);
+        Assert.assertArrayEquals(a,b);
     }
 
     @Test
@@ -92,6 +93,12 @@ public class MyArrayListTest {
         assert (myArrayList.size() == 7);
     }
 
+    @Test
+    void remove(){
+        add();
+        myArrayList.remove(2);
+        assert(myArrayList.size() == 4);
+    }
     @Test
     void iterator() {
     }

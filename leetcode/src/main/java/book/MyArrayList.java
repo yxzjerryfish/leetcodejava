@@ -118,6 +118,8 @@ public class MyArrayList<T> implements Iterable<T> {
         }
         T t = this.innerElement[index];
         System.arraycopy(this.innerElement,index,this.innerElement,index -1 ,this.size - index);
+        this.innerElement[this.innerElement.length -1 ] = null;
+        this.size--;
         return t;
     }
 
