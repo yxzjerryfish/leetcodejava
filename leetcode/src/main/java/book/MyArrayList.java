@@ -112,6 +112,15 @@ public class MyArrayList<T> implements Iterable<T> {
         this.innerElement[index] = t;
     }
 
+    public T remove(Integer index){
+        if(index > this.size){
+            throw new ArrayIndexOutOfBoundsException("Index overflow !");
+        }
+        T t = this.innerElement[index];
+        System.arraycopy(this.innerElement,index,this.innerElement,index -1 ,this.size - index);
+        return t;
+    }
+
     public MyArrayList<T> addAll(MyArrayList<T> arrayList){
         instance(this.size + arrayList.size());
         System.arraycopy(arrayList.innerElement,0,this.innerElement,this.size - arrayList.size,arrayList.size);
