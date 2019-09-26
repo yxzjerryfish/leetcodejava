@@ -1,6 +1,7 @@
 package book;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
@@ -136,19 +137,24 @@ public class MyArrayList<T> implements Iterable<T> {
 
     private class ArrayListIterator implements Iterator<T>{
 
+        private Integer current = 0;
+
         @Override
         public boolean hasNext() {
-            return false;
+            return current<size();
         }
 
         @Override
         public T next() {
-            return null;
+            if(!hasNext()){
+                throw new NoSuchElementException();
+            }
+            return innerElement[current++];
         }
 
         @Override
         public void remove() {
-
+            MyArrayList.this.remove(--current);
         }
 
         @Override
