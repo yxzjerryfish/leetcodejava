@@ -131,9 +131,31 @@ public class MyArrayList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new ArrayListIterator();
     }
 
+    private class ArrayListIterator implements Iterator<T>{
+
+        @Override
+        public boolean hasNext() {
+            return false;
+        }
+
+        @Override
+        public T next() {
+            return null;
+        }
+
+        @Override
+        public void remove() {
+
+        }
+
+        @Override
+        public void forEachRemaining(Consumer<? super T> action) {
+
+        }
+    }
     @Override
     public void forEach(Consumer<? super T> action) {
 
