@@ -164,7 +164,9 @@ public class MyArrayList<T> implements Iterable<T> {
     }
     @Override
     public void forEach(Consumer<? super T> action) {
-
+        for(T element:innerElement){
+            action.accept(element);
+        }
     }
 
     @Override
