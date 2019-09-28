@@ -11,6 +11,19 @@ import java.util.function.Consumer;
  * @date : 2019/9/27 22:05
  */
 public class MyLinkedList<T> implements Iterator<T> {
+
+    private class Node<T>{
+        public T data;
+        public Node<T> prev;
+        public Node<T> next;
+
+        public Node(T data, Node<T> prev, Node<T> next) {
+            this.data = data;
+            this.prev = prev;
+            this.next = next;
+        }
+    }
+
     @Override
     public boolean hasNext() {
         return false;
