@@ -12,6 +12,19 @@ import java.util.function.Consumer;
  */
 public class MyLinkedList<T> implements Iterator<T> {
 
+    private Integer size;
+
+    /**
+     * 在调用主体的新增，修改，删除，清空等方法时增加
+     * 在调用迭代器的next和remove时进行判断，如果和外部的不一致
+     * 说明在调用迭代器的过程中进行了修改，则抛出{{@link java.util.ConcurrentModificationException}}
+     */
+    private Integer modcount = 0;
+
+    private Node<T> head;
+
+    private Node<T> tail;
+
     private class Node<T>{
         public T data;
         public Node<T> prev;
