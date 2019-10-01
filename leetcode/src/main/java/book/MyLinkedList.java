@@ -25,6 +25,20 @@ public class MyLinkedList<T> implements Iterator<T> {
 
     private Node<T> tail;
 
+    public void clear(){
+        head = new Node<T>(null,null,null);
+        tail = new Node<T>(null,head,null);
+        head.next = tail;
+
+        this.size =0;
+        modcount++ ;
+    }
+    
+    public MyLinkedList(){
+        super();
+        clear();
+    }
+
     private class Node<T>{
         public T data;
         public Node<T> prev;
