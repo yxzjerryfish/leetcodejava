@@ -55,6 +55,15 @@ public class MyLinkedList<T> implements Iterator<T> {
         modcount++;
     }
 
+    public T remove(Node<T> p){
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+
+        size--;
+        modcount++;
+        return p.data;
+    }
+
     private class Node<T>{
         public T data;
         public Node<T> prev;
