@@ -33,10 +33,26 @@ public class MyLinkedList<T> implements Iterator<T> {
         this.size =0;
         modcount++ ;
     }
-    
+
     public MyLinkedList(){
         super();
         clear();
+    }
+
+    public void addBefore(Node<T> p,T x){
+        Node<T> node = new Node<>(x,p.prev,p);
+        node.prev.next = node;
+        p.prev = node;
+        size++;
+        modcount++;
+    }
+
+    public void addAfter(Node<T> p, T x){
+        Node<T> node = new Node<>(x,p,p.next);
+        p.next.prev = node;
+        p.next = node;
+        size++;
+        modcount++;
     }
 
     private class Node<T>{
