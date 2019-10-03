@@ -1,6 +1,7 @@
 package book;
 
 import java.util.Iterator;
+import java.util.Spliterator;
 import java.util.function.Consumer;
 
 /**
@@ -10,7 +11,7 @@ import java.util.function.Consumer;
  * @version 1.0
  * @date : 2019/9/27 22:05
  */
-public class MyLinkedList<T> implements Iterator<T> {
+public class MyLinkedList<T> implements Iterable<T> {
 
     private Integer size;
 
@@ -64,6 +65,21 @@ public class MyLinkedList<T> implements Iterator<T> {
         return p.data;
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return null;
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+
+    }
+
+    @Override
+    public Spliterator<T> spliterator() {
+        return null;
+    }
+
     private class Node<T>{
         public T data;
         public Node<T> prev;
@@ -74,25 +90,5 @@ public class MyLinkedList<T> implements Iterator<T> {
             this.prev = prev;
             this.next = next;
         }
-    }
-
-    @Override
-    public boolean hasNext() {
-        return false;
-    }
-
-    @Override
-    public T next() {
-        return null;
-    }
-
-    @Override
-    public void remove() {
-
-    }
-
-    @Override
-    public void forEachRemaining(Consumer<? super T> action) {
-
     }
 }
