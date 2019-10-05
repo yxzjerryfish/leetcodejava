@@ -65,6 +65,22 @@ public class MyLinkedList<T> implements Iterable<T> {
         return p.data;
     }
 
+    public T get(Integer index){
+        Node<T> node ;
+        if (index < size / 2){
+            node = head;
+            for (int i=0;i<index;i++){
+                node = node.next;
+            }
+        } else {
+            node = tail;
+            for (int i = size ;i>index;i--) {
+                node = node.prev;
+            }
+        }
+        return node.data;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return null;
