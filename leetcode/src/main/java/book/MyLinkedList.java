@@ -56,6 +56,18 @@ public class MyLinkedList<T> implements Iterable<T> {
         modcount++;
     }
 
+    /**
+     *  在尾部添加
+     * @param x
+     */
+    public void addTail(T x){
+        addAfter(tail,x);
+    }
+
+    public void addHead(T x){
+        addBefore(head,x);
+    }
+
     public T remove(Node<T> p){
         p.next.prev = p.prev;
         p.prev.next = p.next;
