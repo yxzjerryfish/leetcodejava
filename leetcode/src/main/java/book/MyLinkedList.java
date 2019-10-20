@@ -99,12 +99,27 @@ public class MyLinkedList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new LinkedlistIterator();
+    }
+
+    private class LinkedlistIterator implements Iterator<T>{
+        @Override
+        public boolean hasNext() {
+            return false;
+        }
+
+        @Override
+        public T next() {
+            return null;
+        }
     }
 
     @Override
     public void forEach(Consumer<? super T> action) {
-
+        for(int i=0;i<size;i++){
+            Node<T> node = head.next;
+            action.accept(node.data);
+        }
     }
 
     @Override

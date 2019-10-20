@@ -12,6 +12,7 @@ import book.MyLinkedList;
 public class IntersectionAndUnion {
 
     public MyLinkedList<Integer> getIntersection(MyLinkedList<Integer> La,MyLinkedList<Integer> Lb){
+        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
         return null;
     }
 }
