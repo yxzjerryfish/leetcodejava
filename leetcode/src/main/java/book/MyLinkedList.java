@@ -77,6 +77,10 @@ public class MyLinkedList<T> implements Iterable<T> {
         return p.data;
     }
 
+    public Integer getSize(){
+        return this.size;
+    }
+
     public T get(Integer index){
         Node<T> node ;
         if (index < size / 2){
