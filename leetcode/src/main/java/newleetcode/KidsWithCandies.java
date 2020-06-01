@@ -20,6 +20,19 @@ public class KidsWithCandies {
         return kidsList;
     }
 
+    public List<Boolean> kidsWithCandies2(int[] candies, int extraCandies) {
+        int n = candies.length;
+        int maxCandies = 0;
+        for (int i = 0; i < n; ++i) {
+            maxCandies = Math.max(maxCandies, candies[i]);
+        }
+        List<Boolean> ret = new ArrayList<Boolean>();
+        for (int i = 0; i < n; ++i) {
+            ret.add(candies[i] + extraCandies >= maxCandies);
+        }
+        return ret;
+    }
+
     public static void main(String[] args) {
         int[] m = {4,2,1,1,2};
         System.out.println(new KidsWithCandies().kidsWithCandies(m,1));
